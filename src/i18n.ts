@@ -6,14 +6,18 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      welcome: "Welcome Test",
-      // outras chaves de tradução...
+      welcome: "Lucas Lima,",
+      subhed: "Full-Stack Developer",
+      subtitle: "Developer of modern interfaces, combining technology and creativity for efficient solutions.",
+      buttonhd: "Download Now",
     }
   },
   pt: {
     translation: {
-      welcome: "Teste Bem-vindo",
-      // outras chaves de tradução...
+      welcome: "Lucas Lima,",
+      subhed: "Desenvolvedor Full-Stack",
+      subtitle: "Desenvolvedor de interfaces modernas, unindo tecnologia e criatividade para soluções eficientes." ,
+      buttonhd: "Baixar Curriculo",
     }
   }
 };

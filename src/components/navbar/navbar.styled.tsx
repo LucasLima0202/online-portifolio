@@ -5,10 +5,9 @@ export const Navbar = styled.nav`
   width: 100%;
   display:flex;
   font-family: "Plus Jakarta Sans", sans-serif;
-
   background-color: #201F24;
   color: #FFFFFF;
-  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  box-shadow: 0 1px 4px rgba(93, 91, 91, 0.15);
 `;
 
 // Container que combina as regras de .container e .nav-container
