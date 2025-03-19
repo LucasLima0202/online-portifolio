@@ -1,0 +1,50 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Remove estilos padrão de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove sublinhado de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Define altura mínima para ocupar toda a tela */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Remove bordas padrão em botões e inputs */
+button, input, textarea {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Remove estilos padrão de botões */
+button {
+  cursor: pointer;
+}
+
+/* Reset de imagens para responsividade */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Adiciona um estilo base para a raiz do app */
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
