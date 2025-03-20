@@ -10,6 +10,19 @@ const resources = {
       subhed: "Full-Stack Developer",
       subtitle: "Developer of modern interfaces, combining technology and creativity for efficient solutions.",
       buttonhd: "Download Now",
+
+      protitle: "Projects" ,
+      prosubtitle: "Achievements" ,
+
+      protitlen1: "Project Oliator" ,
+      prolabeln1: "Project created to learn more about react using bootstrap, creating and evaluating games" ,
+
+      protitlen2: "" ,
+      prolabeln2: "" ,
+
+      
+      protitlen3: "" ,
+      prolabeln3: "" ,
     }
   },
   pt: {

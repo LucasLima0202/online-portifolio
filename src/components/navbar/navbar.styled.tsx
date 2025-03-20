@@ -2,8 +2,10 @@
 import styled from "styled-components";
 // Wrapper geral da navbar
 export const Navbar = styled.nav`
-  width: 100%;
+  width: 100%; 
   display:flex;
+  position:static;
+  z-index: 2 !important;
   font-family: "Plus Jakarta Sans", sans-serif;
   background-color: #201F24;
   color: #FFFFFF;

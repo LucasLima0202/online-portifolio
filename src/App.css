@@ -21,8 +21,14 @@ a {
 html, body {
   height: 100%;
   width: 100%;
-  background-color: #201F24;
+  overflow-x: hidden !important;
+
 }
+
+body {
+  background-color: #201F24; /* Caso tenha um background */
+}
+
 
 /* Remove bordas padrão em botões e inputs */
 button, input, textarea {
