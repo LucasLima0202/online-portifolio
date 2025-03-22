@@ -198,7 +198,7 @@ const ProjectSection = () => {
                     </_Img>
                     <_GroupAncora href="#">
                         <_Span>
-                        {t('protitlen1')}
+                        {t('protitlen2')}
                         </_Span>
                         <_Icon>
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -222,7 +222,7 @@ const ProjectSection = () => {
                     </_Img>
                     <_GroupAncora href="#">
                         <_Span>
-                        {t('protitlen1')}
+                        {t('protitlen3')}
                         </_Span>
                         <_Icon>
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -244,11 +244,16 @@ const ProjectSection = () => {
             </Article_Box_Project>
             <Article_Button_Center>
                 <Button 
-                text=""
-                bgColor=""
-                textColor=""
+                text={t('buttonpro')}
+                bgColor="#1D1D1D"
+                textColor="#FFFFFF"
                 iconLeft={""} 
                 iconRight= {""}
+                borderColor="#343434"
+                paddingl="60px"
+                paddingr="60px"
+                paddingt="15px"
+                paddingb="15px"
                 />
             </Article_Button_Center>
         </Article>
