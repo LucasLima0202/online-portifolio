@@ -8,6 +8,8 @@ import SpikeDecorativeBottom from './components/herosection/decorative/spikebott
 import DesktopSpikeTop from './components/herosection/decorative/desktopspiketop';
 import DesktopSpikeBottom from './components/herosection/decorative/desktopspikebottom';
 import ProjectSection from './components/projects/projects';
+import AppSection from './components/apps/appsection';
+import SocialSection from './components/social/socialsection';
 
 
 const DivCenter = styled.div`
@@ -32,20 +34,6 @@ const BDivCenter = styled.div`
   }
   `;
 
-const DivMobile = styled.div`
-display:none;
-@media (max-width: 480px) {
-display:flex;
-}
-`;
-
-
-const DivDesktop = styled.div`
-display:flex;
-@media (max-width: 480px) {
-display:none;
-}
-`;
 
 const Body = styled.section`
 display:flex;
@@ -80,9 +68,15 @@ function App() {
         <DivCenter>
           <HeroSection />
         </DivCenter>
+
         <DivCenter>
         <ProjectSection />
         </DivCenter>
+        
+        <DivCenter>
+        <SocialSection />
+        </DivCenter>
+
          </Body>
       </BDivCenter>
 

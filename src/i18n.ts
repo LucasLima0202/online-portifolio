@@ -24,7 +24,16 @@ const resources = {
       protitlen3: "Project Safari App" ,
       prolabeln3: "" ,
 
-      buttonpro: "More Projects"
+      buttonpro: "More Projects" ,
+
+      appsectiontitle: "Tools",
+      appsubtitle: "Make it happen" ,
+
+      socialtitle: "About",
+      socialsubtitle: "Envolving"
+
+
+      
     }
   },
   pt: {

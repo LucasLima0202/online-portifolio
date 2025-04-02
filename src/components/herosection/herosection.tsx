@@ -74,12 +74,14 @@ margin-top: 4%;
 `
 const SubtitleEN = styled.p`
 text-align: center;
+display: none;
 color: #8F8F91;
 letter-spacing: 1%;
 font-size: 1.13rem;
 margin-top: 5%;
 @media (max-width: 480px) {
     font-size:1rem;
+    display: block;
     margin-top: 0%;
     line-height: 160%;
     padding-left:4%;
@@ -110,7 +112,53 @@ height:100vh;
     height:90vh;
 }
 `
-
+const Typewriter = styled.div`
+  margin-top: 5%;
+  display:block;
+  @media (max-width: 480px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: none;
+  }
+  
+  h1 {
+    overflow: hidden;                  /* Esconde o texto não revelado */
+    border-right: 0.15em solid white;   /* Cursor tipo máquina de escrever */
+    color: #8F8F91;
+    white-space: nowrap;
+    letter-spacing: 1%;
+    font-size: 1.13rem;
+    font-weight: 500;
+    margin: 0 auto;
+    max-width: 0;                      /* Inicia com o texto oculto */
+    animation: typing 4s steps(40, end) forwards,
+               blink-caret 0.75s step-end infinite;
+               
+    @media (max-width: 480px) {
+      font-size: 1rem;
+      margin-top: 0;
+      line-height: 160%;
+      padding: 0 4%;
+      white-space: normal;             /* Permite quebra em 2 linhas, conforme necessário */
+      max-width: 0;                    /* Inicia oculto também no mobile */
+      animation: typing 4s steps(40, end) forwards,
+                 blink-caret 0.75s step-end infinite;
+    }
+  }
+  
+  /* A animação de "typing" revela o texto gradualmente */
+  @keyframes typing {
+    from { max-width: 0; }
+    to { max-width: 1000px; } /* Valor grande o suficiente para revelar todo o texto */
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #b7b3b3; }
+  }
+`;
 
 const HeroSection = () => {
     const { t, i18n } = useTranslation();
@@ -133,9 +181,16 @@ const HeroSection = () => {
             {t('subtitle')}
           </SubtitleBR>
         ) : (
+         <>
+          <Typewriter>
+           <h1>{t('subtitle')}</h1>
+          </Typewriter>
+
+         
           <SubtitleEN>
             {t('subtitle')}
           </SubtitleEN>
+         </>
         )}
       </div>
       <DivButtonHeading>
