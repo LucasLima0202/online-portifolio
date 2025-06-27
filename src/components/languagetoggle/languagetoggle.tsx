@@ -16,12 +16,18 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 
 const ToggleButton = styled.div`
   padding: 0.5rem 0.7rem;
-  border: 1px solid #ccc;
   border-radius: 4px;
   font-weight: bold;
   display: flex;
   align-items: center;
-  background: #201F24;
+  border-radius: 9999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* suporte Safari */
+  background: linear-gradient(
+    90deg,
+    rgba(116, 116, 116, 0.2) 0%,
+    rgba(228, 228, 228, 0.2) 100%
+  );
 `;
 
 const FlagImg = styled.img`

@@ -74,7 +74,6 @@ function App() {
         </DivCenter>
         
         <DivCenter>
-        <SocialSection />
         </DivCenter>
 
          </Body>

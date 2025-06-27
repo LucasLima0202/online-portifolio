@@ -2,14 +2,21 @@
 import styled from "styled-components";
 // Wrapper geral da navbar
 export const Navbar = styled.nav`
-  width: 100%; 
-  display:flex;
-  position:static;
-  z-index: 2 !important;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 999;
   font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: #201F24;
-  color: #FFFFFF;
-  box-shadow: 0 1px 4px rgba(93, 91, 91, 0.15);
+  background-color: transparent;
+  color: #ffffff;
+  box-shadow: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.scrolled {
+    background-color: #151515;
+    box-shadow: 0 1px 4px rgba(93, 91, 91, 0.15);
+  }
 `;
 
 // Container que combina as regras de .container e .nav-container
@@ -52,7 +59,6 @@ export const Line = styled.span`
 
 export const LanguageToggleBox = styled.div`
 display: flex;
-width:100%;
 margin-left:3%;
 justify-content: center;
 img {
@@ -81,13 +87,10 @@ export const Line3 = styled(Line)`
 // Logo exibida na navbar
 export const Logo = styled.div`
 display:flex;
-justify-content:center;
 align-items:center;
 align-content:center;
-height:100%;
 font-size: 0.9rem;
 color: #ffffff;
-width:100%;
 
 img{
    width:28px; 
@@ -95,8 +98,12 @@ img{
 
 h1{
     font-family: "Plus Jakarta Sans", sans-serif;
-    padding-left:10px;
-    font-weight:500;
+    font-weight: 800;
+    background: linear-gradient(to right, #7B7B7B, #FFFFFF);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 `;
 
@@ -116,8 +123,9 @@ export const MenuItems = styled.ul`
 export const NavSeparator = styled.div`
 display:flex;
 flex-direction:row;
-justify-content:center;
+justify-content:space-between;
 height:100%;
+padding: 20px
 
 `;
 

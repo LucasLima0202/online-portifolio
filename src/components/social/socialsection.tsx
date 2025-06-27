@@ -23,7 +23,19 @@ margin-bottom: 3%;
 
   }
 `
+const ButtonWrapper = styled.div`
+  margin-top: 5%;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
 
+  & > button {
+    width: 100%;
+    height: 8vh;
+    text-align: center !important;
+  }
+`;
 const Article_Title = styled.div`
 display:flex;
 flex-flow: column nowrap;
@@ -394,14 +406,17 @@ const SocialSection = () => {
                                 Message
                             </Label>
                             <InpTextArea />
-                            <ButtonType type='submit'>  <Button
-                                text={'Pindorama'}
+                            <ButtonWrapper>
+                            <Button
+                                type="submit"
+                                text='Pindorama'
                                 conner="6px"
                                 bgColor="#FFFFFF"
                                 textColor="#151515"
                                 iconLeft={''}
                                 iconRight={''}
-                            /></ButtonType>
+                            />
+                            </ButtonWrapper>
                         </Forms>
 
                         <Line>

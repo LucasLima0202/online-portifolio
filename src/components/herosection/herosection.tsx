@@ -7,11 +7,49 @@ import Frame from "../../../public/Frame.svg"
 import Lottie from "lottie-react";
 import scrollAnimation from "../../assets/lotties/lottiemousescrolldown.json"
 
+const BackgroundSpikes = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Spike.svg') ;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+  pointer-events: none;
+  z-index: -1;
+  transform: rotate(2deg);
+
+  @media (max-width: 480px) {
+    width:65%;
+    right: 300px;
+    top: -80px;
+  }
+`;
+
+const BackgroundSpikesBttm = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('/SpikeBttm.svg') ;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+  pointer-events: none;
+  z-index: -1;
+  transform: rotate(2.9deg);
+  @media (max-width: 480px) {
+    width:100%;
+    left: 270px;
+    top: 360px;
+  }
+`;
+
 const DivCenter = styled.div`
  display:flex;
  text-align:center;
  justify-content:center;
  align-items:center;
+  background-color:#151515;
  width:100%;
 margin-top: 5%;
  @media (max-width: 480px) {
@@ -52,8 +90,15 @@ const HeadingEN = styled.h1`
   width: 100%;
   @media (max-width: 480px) {
     padding: 0 5%;
-    margin-bottom: 11%;
+    margin-bottom: 10%;
     font-size: 2.04rem; 
+    padding-top: 10px;
+  }
+  span{
+      background: linear-gradient(90deg, #7B7B7B 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   }
 `;
 
@@ -78,7 +123,7 @@ display: none;
 color: #8F8F91;
 letter-spacing: 1%;
 font-size: 1.13rem;
-margin-top: 5%;
+margin-top: 4%;
 @media (max-width: 480px) {
     font-size:1rem;
     display: block;
@@ -93,7 +138,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-margin-top:5%;
+margin-top:8%;
 margin-bottom:1%;
 
 @media (max-width: 480px) {
@@ -107,6 +152,7 @@ justify-content:center;
 align-items: center;
 flex-flow: column nowrap;
 width:100%;
+  background-color:#151515;
 height:100vh;
 @media (max-width: 480px) {
     height:90vh;
@@ -160,39 +206,65 @@ const Typewriter = styled.div`
   }
 `;
 
+const LightEffect = styled.div`
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #646161;
+  filter: blur(90px);
+  border-radius: 50%;
+  z-index:-10;
+
+  @media (max-width: 480px) {
+      top:200px;
+  }
+`;
+const HeroContentWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TopContentLabel = styled.div`
+margin-top:15%;
+`;
+
 const HeroSection = () => {
     const { t, i18n } = useTranslation();
     const currentLang = i18n.language;
   
     return (
-        <Hero>
-         <div>
+  <Hero>
+    <HeroContentWrapper>
+      <LightEffect />
+      <BackgroundSpikes />
+      <BackgroundSpikesBttm />
+      <TopContentLabel>
         {currentLang === 'pt' ? (
           <HeadingBR>
-            {t('welcome')}<br />{t('subhed')}
+            {t('welcome')}<br /><span>{t('subhed')}</span>
           </HeadingBR>
         ) : (
           <HeadingEN>
-            {t('welcome')}<br />{t('subhed')}
+            {t('welcome')}<br /><span>{t('subhed')}</span>
           </HeadingEN>
         )}
         {currentLang === 'pt' ? (
-          <SubtitleBR>
-            {t('subtitle')}
-          </SubtitleBR>
+          <SubtitleBR>{t('subtitle')}</SubtitleBR>
         ) : (
-         <>
-          <Typewriter>
-           <h1>{t('subtitle')}</h1>
-          </Typewriter>
-
-         
-          <SubtitleEN>
-            {t('subtitle')}
-          </SubtitleEN>
-         </>
+          <>
+            <Typewriter>
+              <h1>{t('subtitle')}</h1>
+            </Typewriter>
+            <SubtitleEN>{t('subtitle')}</SubtitleEN>
+          </>
         )}
-      </div>
+      </TopContentLabel>
+
       <DivButtonHeading>
         <Button
           text={t('buttonhd')}
@@ -200,6 +272,7 @@ const HeroSection = () => {
           textColor="#151515"
           iconLeft={Frame}
           iconRight={faArrowRight}
+          $glow={true}
         />
       </DivButtonHeading>
 
@@ -208,7 +281,8 @@ const HeroSection = () => {
           <Lottie animationData={scrollAnimation} loop={true} />
         </DivCenter>
       </BDivCenter>
-        </Hero>
+    </HeroContentWrapper>
+  </Hero>
     )
 }
 

@@ -1,5 +1,5 @@
 // Navbar.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavContainer,
@@ -19,49 +19,32 @@ import LanguageToggle from "../languagetoggle/languagetoggle";
 
 
 const NavbarComponent = () => {
+   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50); 
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <Navbar>
+    <Navbar className={scrolled ? "scrolled" : ""}>
       <NavContainer>
         {/* Checkbox para controlar o menu */}
-        <Checkbox />
-        {/* Botão hamburger */}
-        <HamburgerLines>
-          <Line1 />
-          <Line2 />
-          <Line3 />
-        </HamburgerLines>
         {/* Logo */}
         <NavSeparator>
-        <NavSpace>
 
-        </NavSpace>
         <Logo>
-          <img src="templogo.svg"/>
-          <h1> Lm4s</h1>
+          <h1> LCS</h1>
         </Logo>
         <LanguageToggleBox>
             <LanguageToggle/>
         </LanguageToggleBox>
         </NavSeparator>
 
-        {/* Menu */}
-        <MenuItems>
-          <MenuItem>
-            <a href="#">Home</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#">About</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#">Blogs</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#">Portfolio</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#">Contact</a>
-          </MenuItem>
-        </MenuItems>
+      
         
       </NavContainer>
     </Navbar>
