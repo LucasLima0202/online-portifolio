@@ -9,7 +9,7 @@ interface ToolsProps {
 const ToolsSection = styled.section`
   position: relative;
   width: 100%;
-  padding: 80px 0;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;

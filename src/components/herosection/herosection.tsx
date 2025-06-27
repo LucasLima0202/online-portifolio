@@ -152,7 +152,6 @@ justify-content:center;
 align-items: center;
 flex-flow: column nowrap;
 width:100%;
-  background-color:#151515;
 height:100vh;
 @media (max-width: 480px) {
     height:90vh;

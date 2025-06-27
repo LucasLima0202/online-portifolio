@@ -7,8 +7,11 @@ import backgroundImage from "../../assets/img/Desktop - 45-invisble.png";
 import Button from "../button/button";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import imggroup from "../../assets/img/imgtest.png";
-import gitlogo from "../../assets/svg/Github.svg"
+// import imggroup from "../../assets/img/imgtest.png";
+import gitlogo from "../../assets/svg/Github.svg";
+import layout from "../../assets/svg/layout.svg";
+import tools from "../../assets/svg/tool.svg";
+
 const Article = styled.article`
   display: flex;
   padding-top: 5%;
@@ -50,14 +53,6 @@ const _Title = styled.h1`
   margin-top: 7%;
 `;
 
-const _GroupAncora = styled.a`
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row;
-  align-items: center;
-  gap: 8px;
-`;
-
 const _Span = styled.span`
   font-size: 1rem;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -72,6 +67,17 @@ const _Icon = styled.div`
     color: #C4C3C5;
   }
 `;
+const _GroupAncora = styled.a<{ disabled?: boolean }>`
+  display: ${({ disabled }) => (disabled ? 'none' : 'flex')};
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 5%;
+`;
+
 
 const Article_Box_Project = styled.section`
   display: flex;
@@ -96,7 +102,7 @@ const _Box_Column = styled.div`
   align-items: flex-start;
   width: 300px;
   gap: 16px;
-  padding: 24px;
+  padding: 0px;
   border-radius: 16px;
 `;
 
@@ -114,6 +120,7 @@ const __ContainerImg = styled.div`
 const _Img = styled.img`
   transition: 0.5s ease all;
   width: 100%;
+  background-color: #1D1D1D;
   object-fit: cover;
 `;
 
@@ -164,35 +171,57 @@ const TabButton = styled.button<{ isActive: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  width:40vw;
+  height:120px;
   gap: 8px;
-  width: 120px;
-  height: 100px;
+  margin-bottom: 10%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
-  border-radius: 24px;
-  border: none;
-  background: ${({ isActive }) =>
-    isActive ? '#fff' : 'rgba(255, 255, 255, 0.04)'};
-  color: ${({ isActive }) => (isActive ? '#000' : '#C4C3C5')};
+  background: ${({ isActive }) => (isActive ? '#FFFFFF' : '#151515')};
 
+  color: ${({ isActive }) => (isActive ? '#000000' : '#FFFFFF')};
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.2rem;
+
   cursor: pointer;
   transition: all 0.3s ease;
 
   box-shadow: ${({ isActive }) =>
-    isActive ? '0 0 12px rgba(255,255,255,0.3)' : 'none'};
+    isActive
+      ? '0px 0px 15px 5px rgba(255, 255, 255, 0.25)'
+      : 'none'};
 
-  svg, span.emoji {
-    font-size: 1.5rem;
+  img {
+
+    filter: ${({ isActive }) =>
+    isActive
+      ? 'brightness(0) saturate(100%) invert(0) sepia(0) saturate(0%) hue-rotate(0deg) drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.6))'
+      : 'brightness(0) saturate(100%) invert(1) sepia(0) saturate(0%) hue-rotate(0deg) drop-shadow(0px 1px 2px rgba(255, 255, 255, 0.3))'};
+  transition: filter 0.3s ease;
+  }
+
+  span,
+  svg {
+    text-transform: capitalize; 
+    text-shadow: ${({ isActive }) =>
+      isActive
+        ? '0px 1px 2px rgba(0, 0, 0, 0.6)'
+        : '0px 1px 2px rgba(255, 255, 255, 0.2)'};
+    transition: text-shadow 0.3s ease;
   }
 
   &:hover {
-    opacity: 0.85;
+    opacity: 0.9;
   }
 `;
-
+const IconImg = styled.img`
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  vertical-align: middle;
+`;
 const ToolsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -236,12 +265,12 @@ const ProjectSection = () => {
       <Article_Title>
        <TabController>
   <TabButton isActive={tab === 'projects'} onClick={() => setTab('projects')}>
-    <span className="emoji">📁</span>
-    {t('projects')}
+        <IconImg src={layout} alt="Layout icon" />
+    {t('Projects')}
   </TabButton>
   <TabButton isActive={tab === 'tools'} onClick={() => setTab('tools')}>
-    <span className="emoji">🛠️</span>
-    {t('tools')}
+      <IconImg src={tools} alt="Tools icon" />
+    {t('Tools')}
   </TabButton>
 </TabController>
         <_Subtitle>
@@ -250,7 +279,7 @@ const ProjectSection = () => {
         <_Title>
           {tab === 'projects' ? t('protitle') : t('appsectiontitle')}
         </_Title>
-        <_GroupAncora href="#">
+        <_GroupAncora href="#" disabled={tab === 'tools'}>
           <_Span>GitHub</_Span>
           <_Icon>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -264,7 +293,7 @@ const ProjectSection = () => {
             {[1, 2, 3].map((i) => (
               <_Box_Column key={i}>
                 <__ContainerImg>
-                  <_Img src={imggroup} />
+                  {/* <_Img src={imggroup} /> */}<_Img  alt="none" />
                 </__ContainerImg>
                 <_GroupAncora href="#">
                   <_Span>{t(`protitlen${i}`)}</_Span>
@@ -281,7 +310,7 @@ const ProjectSection = () => {
             ))}
           </Article_Box_Project>
 
-          <Article_Button_Center>
+          {/* <Article_Button_Center>
             <Button
               text={t('buttonpro')}
               bgColor="#1D1D1D"
@@ -294,7 +323,7 @@ const ProjectSection = () => {
               paddingt="15px"
               paddingb="15px"
             />
-          </Article_Button_Center>
+          </Article_Button_Center> */}
         </FadeInWrapper>
       )}
 
